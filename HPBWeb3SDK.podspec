@@ -10,13 +10,12 @@ DESC
 s.homepage         = "https://github.com/HPBBlockchain/HPBWeb3SDKDemo"
 s.license          = 'Apache License 2.0'
 s.author           = { "Jason" => "hpblian2018@qq.com" }
-s.source           = { :git => 'https://github.com/matter-labs/web3swift.git', :tag => s.version.to_s }
-s.social_media_url = 'https://twitter.com/shamatar'
+s.source           = { :git => 'https://github.com/matter-labs/web3swift.git'}
 
 s.swift_version = '4.2'
 s.module_name = 'HPBWeb3SDK'
 s.ios.deployment_target = "9.0"
-s.source_files = "HPBWeb3SDK/SDK/*"
+s.source_files = 'HPBWeb3SDK/SDK/ABI/Classes/*.swift'
 
 s.frameworks = 'CoreImage'
 s.dependency 'Alamofire', '~> 4.8.2'
