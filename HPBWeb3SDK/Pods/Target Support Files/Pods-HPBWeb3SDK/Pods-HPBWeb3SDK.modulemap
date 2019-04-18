@@ -1,6 +1,0 @@
-module Pods_HPBWeb3SDK {
-  umbrella header "Pods-HPBWeb3SDK-umbrella.h"
-
-  export *
-  module * { export * }
-}
