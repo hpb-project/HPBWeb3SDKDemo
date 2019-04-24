@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  HPBWeb3SDK
 //
-//  Created by 刘晓亮 on 2019/4/17.
+//  Created by lxl on 2019/4/17.
 //  Copyright © 2019 HPB Foundation. All rights reserved.
 //
 
