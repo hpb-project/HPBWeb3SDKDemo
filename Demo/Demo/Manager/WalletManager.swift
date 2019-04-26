@@ -97,11 +97,11 @@ extension HPBWalletManager{
         guard let fileData = result.data else{
             return result
         }
-        let ethv3 = HPBKeystoreV3(fileData)
-        guard let ethAddress = ethv3?.getAddress() else {
+        let hpbv3 = HPBKeystoreV3(fileData)
+        guard let hpbAddress = hpbv3?.getAddress() else {
             return WalletDataResult(false,"Failed to get the address!",nil)
         }
-        guard let data = try? ethv3?.UNSAFE_getPrivateKeyData(password: password, account: ethAddress)
+        guard let data = try? hpbv3?.UNSAFE_getPrivateKeyData(password: password, account: hpbAddress)
             else{
                 return WalletDataResult(false,"Enter the password incorrectly",nil)
         }
@@ -114,7 +114,7 @@ extension HPBWalletManager{
 extension HPBWalletManager{
     
     /// Import private key
-    static func importByPrivateKey(_ privateData: Data,password: String,tipInfo: String? = nil,isMapping:String? = "0",isUpdataPassword: Bool = false,success:((HPBWalletRealmModel)->Void)?) -> WalletManagerResult{
+    static func importByPrivateKey(_ privateData: Data,password: String,isUpdataPassword: Bool = false,success:((HPBWalletRealmModel)->Void)?) -> WalletManagerResult{
         do {
             let keystoreV3 = try HPBKeystoreV3(privateKey: privateData, password: password)
             guard let kV3 = keystoreV3 else {
@@ -136,10 +136,7 @@ extension HPBWalletManager{
                 walletModel.configModel(adress.address,
                                         kstoreName: filename,
                                         walletName: walletname,
-                                        mnemonics: nil,
-                                        tipInfo:tipInfo,
-                                        mappingState: isMapping,
-                                        headName: "头像Image名字")
+                                        mnemonics: nil)
                 success?(walletModel)
                 return WalletManagerResult(true,nil)
             }else{
@@ -157,9 +154,10 @@ extension HPBWalletManager{
         guard let seed =  BIP39.seedFromMmemonics(mmemonics, language: BIP39Language.english) else{
             return WalletManagerResult(false,"WalletHandel-Import-Faile")
         }
-        return HPBWalletManager.importByPrivateKey(seed.sha256(), password: password,tipInfo: tipInfo) {
+        return HPBWalletManager.importByPrivateKey(seed.sha256(), password: password) {
             $0.mnemonics = nil  
             success?($0)
+   
         }
     }
     
@@ -172,7 +170,7 @@ extension HPBWalletManager{
         }
         do {
             let privateKeyData =  try keystoreV3.UNSAFE_getPrivateKeyData(password: password, account: address)
-            return HPBWalletManager.importByPrivateKey(privateKeyData, password: password,isMapping: isMapping){
+            return HPBWalletManager.importByPrivateKey(privateKeyData, password: password){
                 success?($0)
             }
         }catch{
