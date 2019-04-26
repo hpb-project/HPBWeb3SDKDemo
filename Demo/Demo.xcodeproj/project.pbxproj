@@ -12,6 +12,11 @@
 		B550CCBC2271522E004C60E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B550CCBA2271522E004C60E6 /* Main.storyboard */; };
 		B550CCBE2271522F004C60E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B550CCBD2271522F004C60E6 /* Assets.xcassets */; };
 		B550CCC12271522F004C60E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B550CCBF2271522F004C60E6 /* LaunchScreen.storyboard */; };
+		B5657166227308DD0096057E /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B565715F227308DD0096057E /* FileManager.swift */; };
+		B5657167227308DD0096057E /* WalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5657160227308DD0096057E /* WalletManager.swift */; };
+		B5657168227308DD0096057E /* HPBWalletModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5657162227308DD0096057E /* HPBWalletModel.swift */; };
+		B5657169227308DD0096057E /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5657164227308DD0096057E /* Date+Extension.swift */; };
+		B565716A227308DD0096057E /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5657165227308DD0096057E /* Data+Extension.swift */; };
 		F16AEF1B14A3A33CF53FA877 /* libPods-Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8A6B4C4D74B8872BAEA619C /* libPods-Demo.a */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +29,11 @@
 		B550CCBD2271522F004C60E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B550CCC02271522F004C60E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B550CCC22271522F004C60E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B565715F227308DD0096057E /* FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		B5657160227308DD0096057E /* WalletManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletManager.swift; sourceTree = "<group>"; };
+		B5657162227308DD0096057E /* HPBWalletModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HPBWalletModel.swift; sourceTree = "<group>"; };
+		B5657164227308DD0096057E /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		B5657165227308DD0096057E /* Data+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		F36841BB9D89B4686BB567F1 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 		F8A6B4C4D74B8872BAEA619C /* libPods-Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -69,6 +79,9 @@
 		B550CCB52271522E004C60E6 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				B5657163227308DD0096057E /* Extension */,
+				B565715E227308DD0096057E /* Manager */,
+				B5657161227308DD0096057E /* Model */,
 				B550CCB62271522E004C60E6 /* AppDelegate.swift */,
 				B550CCB82271522E004C60E6 /* ViewController.swift */,
 				B550CCBA2271522E004C60E6 /* Main.storyboard */,
@@ -79,13 +92,38 @@
 			path = Demo;
 			sourceTree = "<group>";
 		};
+		B565715E227308DD0096057E /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				B565715F227308DD0096057E /* FileManager.swift */,
+				B5657160227308DD0096057E /* WalletManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		B5657161227308DD0096057E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B5657162227308DD0096057E /* HPBWalletModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B5657163227308DD0096057E /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B5657164227308DD0096057E /* Date+Extension.swift */,
+				B5657165227308DD0096057E /* Data+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		E317A61F9C88960E80DAD6C1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				5ED89BFB9D3574224AA1FAE7 /* Pods-Demo.debug.xcconfig */,
 				F36841BB9D89B4686BB567F1 /* Pods-Demo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -186,8 +224,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5657166227308DD0096057E /* FileManager.swift in Sources */,
+				B565716A227308DD0096057E /* Data+Extension.swift in Sources */,
 				B550CCB92271522E004C60E6 /* ViewController.swift in Sources */,
+				B5657167227308DD0096057E /* WalletManager.swift in Sources */,
+				B5657168227308DD0096057E /* HPBWalletModel.swift in Sources */,
 				B550CCB72271522E004C60E6 /* AppDelegate.swift in Sources */,
+				B5657169227308DD0096057E /* Date+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
